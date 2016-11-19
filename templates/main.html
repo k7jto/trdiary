@@ -1,0 +1,25 @@
+<!-- http://code.runnable.com/UhLMQLffO1YSAADK/handle-a-post-request-in-flask-for-python -->
+<!DOCTYPE html>
+    <head>
+        <title>{{ title }}</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+        
+        <script nonce='{{ script_nonce }}'>
+            function getMessage(id) {
+                var jsonObj = ({{ json_data|tojson }});
+                document.getElementById('messages').innerText = "Message: " + jsonObj[id].Message;
+                //return jsonObj[1].Message;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>Raw JSON Messages</h1>
+            </div>
+            <div id="messages">
+                <code><script>getMessage(1)</script></code>
+            </div>
+        </div>
+    </body>
+</html>

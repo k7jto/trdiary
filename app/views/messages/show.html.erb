@@ -1,0 +1,17 @@
+<p>
+    <strong>Title:</strong>
+    <%= @message.title %>
+</p>
+
+<p>
+    <strong>Text:</strong>
+    <%= @message.text %>
+</p>
+
+<p>
+    <%= link_to "Create another message", new_message_path %>
+</p>
+
+<p>
+    <%= link_to "Show all messages", messages_path %>
+</p>
