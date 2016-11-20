@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+    
     def index
         @messages = Message.all
     end
@@ -8,9 +9,11 @@ class MessagesController < ApplicationController
     end
     
     def new
+        @message = Message.new
     end
     
     def create
+        timestamp = Time.now.utc.iso8601
         @message = Message.new(message_params)
         
         if @message.save

@@ -1,4 +1,9 @@
 <p>
+    <strong>Time:</strong>
+    <%= @message.created_at.strftime("%H:%I") %> ET
+</p>
+
+<p>
     <strong>Title:</strong>
     <%= @message.title %>
 </p>
