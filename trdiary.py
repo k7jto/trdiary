@@ -1,4 +1,6 @@
+import flask
 from flask import Flask, render_template, make_response, request, url_for, jsonify, g
+import json
 import random
 
 app = Flask(__name__)
@@ -27,15 +29,18 @@ entries = [
         },
     ]
 
+
 @app.route('/', methods=['GET'])
 def hello():
     # Create a nonce for this page
     scriptNonce = random.getrandbits(64)
     
+    parsed_entries = json.dumps(entries)
+    
     templateData = {
         'title' : 'Tom Riddle Diary',
         'script_nonce' : scriptNonce,
-        'entry_Collection' : entries
+        'entry_Collection' : parsed_entries
         }
     
     r = make_response(render_template('main.html', **templateData))
